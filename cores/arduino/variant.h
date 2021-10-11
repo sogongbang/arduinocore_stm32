@@ -12,4 +12,8 @@
  */
 #pragma once
 
+#if defined(UBINOS_BSP_PRESENT)
+#include "variant_nucleof207zg.h"
+#else
 #include VARIANT_H
+#endif /* defined(UBINOS_BSP_PRESENT) */

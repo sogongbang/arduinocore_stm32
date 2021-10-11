@@ -2,6 +2,20 @@
 #define WIRING_SERIAL_H
 
 #include "variant.h"
+
+#if defined(UBINOS_BSP_PRESENT)
+#if !defined(Serial)
+
+#include <DttySerial.h>
+
+#define Serial SerialDtty
+#define serialEvent serialEventDtty
+
+extern void serialEventDtty(void) __attribute__((weak));
+
+#endif /* !defined(Serial) */
+#endif /* defined(UBINOS_BSP_PRESENT) */
+
 #include "HardwareSerial.h"
 #include "USBSerial.h"
 #include "VirtIOSerial.h"
